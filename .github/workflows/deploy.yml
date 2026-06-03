@@ -1,0 +1,16 @@
+name: Pipeline CI/CD - Github Pages
+
+on:
+  push:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  validacao-html:
+  # continua na proxima aula
+  deploy-producao:
+  # continua na proxima aula
