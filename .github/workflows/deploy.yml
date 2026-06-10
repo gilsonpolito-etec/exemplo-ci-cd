@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Baixar código
-      uses: actions/checkoit@v4
+      uses: actions/checkout@v4
 
     - name: Configurar o Github Pages
       uses: actions/configure-pages@v4
