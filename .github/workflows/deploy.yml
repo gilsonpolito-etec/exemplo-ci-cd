@@ -22,6 +22,9 @@ jobs:
       with:
         node-version: 18
 
+    - name: Instalar validador de html
+      run: npm install -g htmlhint
+
     - name: Validar Arquivos html
       run: htmlhint "index.html"
 
