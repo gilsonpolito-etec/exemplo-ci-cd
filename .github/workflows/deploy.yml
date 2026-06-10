@@ -10,7 +10,36 @@ permissions:
   id-token: write
 
 jobs:
+# Etapa de CI (Integração contínua)
   validacao-html:
-  # continua na proxima aula
+    runs-on: ubuntu-latest
+    steps:
+    - name: Baixar código
+      uses: actions/checkout@v4
+    
+    - name: Configurar Node.js (Ambiente de Linter)
+      uses: actions/setup-node@v4
+      with:
+        node-version: 18
+
+    - name: Validar Arquivos html
+      run: htmlhint "index.html"
+
+  # Etapa de CD (Entrega contínua)
   deploy-producao:
-  # continua na proxima aula
+    needs: validacao-html
+    runs-on: ubuntu-latest
+    steps:
+    - name: Baixar código
+      uses: actions/checkoit@v4
+
+    - name: Configurar o Github Pages
+      uses: actions/configure-pages@v4
+
+    - name: Compactar Artefatos do Site
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: '.'
+
+    - name: Publica no Github Pages
+      uses: actions/deploy-pages@v4
